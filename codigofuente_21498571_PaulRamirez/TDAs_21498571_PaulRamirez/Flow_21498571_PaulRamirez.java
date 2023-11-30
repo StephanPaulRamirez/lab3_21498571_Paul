@@ -51,4 +51,12 @@ public class Flow_21498571_PaulRamirez implements IFlow_21498571_PaulRamirez {
             this.option.add(op);
         }
     }
+
+    @Override
+    public boolean equals(Object flow) {
+        if (this == flow) return true;
+        if (flow == null || getClass() != flow.getClass()) return false;
+        Flow_21498571_PaulRamirez that = (Flow_21498571_PaulRamirez) flow;
+        return id == that.id;
+    }
 }

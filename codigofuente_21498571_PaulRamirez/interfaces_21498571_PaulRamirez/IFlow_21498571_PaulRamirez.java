@@ -10,4 +10,5 @@ public interface IFlow_21498571_PaulRamirez {
     List<Option_21498571_PaulRamirez> getOption();
     void flowAddOption(Option_21498571_PaulRamirez op);
     String toString();
+    boolean equals(Object fl);
 }
