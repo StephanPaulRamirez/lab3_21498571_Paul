@@ -20,7 +20,7 @@ public class Administrador implements IUsuario_21498571_PaulRamirez{
         if (this == u) return true;
         if (u == null || getClass() != u.getClass()) return false;
         Administrador that = (Administrador) u;
-        return Objects.equals(username, that.username);
+        return (username.equals(that.username));
     }
 
     @Override
