@@ -61,7 +61,7 @@ public class Chatbot_21498571_PaulRamirez implements IChatbot_21498571_PaulRamir
 
     @Override
     public String toString() {
-        return "Chatbot_21498571_PaulRamirez{" +
+        return "\nChatbot_21498571_PaulRamirez{" +
                 "chatbotID=" + chatbotID +
                 ", name='" + name + '\'' +
                 ", welcomeMessage='" + welcomeMessage + '\'' +

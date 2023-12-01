@@ -22,7 +22,7 @@ public class Option_21498571_PaulRamirez implements IOption_21498571_PaulRamirez
 
     @Override
     public String toString() {
-        return "Option_21498571_PaulRamirez{" +
+        return "\nOption_21498571_PaulRamirez{" +
                 "code=" + code +
                 ", message='" + message + '\'' +
                 ", chatbotCodeLink=" + chatbotCodeLink +

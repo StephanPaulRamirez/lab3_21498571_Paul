@@ -23,7 +23,7 @@ public class Flow_21498571_PaulRamirez implements IFlow_21498571_PaulRamirez {
 
     @Override
     public String toString() {
-        return "Flow_21498571_PaulRamirez{" +
+        return "\nFlow_21498571_PaulRamirez{" +
                 "id=" + id +
                 ", nameMsg='" + nameMsg + '\'' +
                 ", option=" + option.toString() +
