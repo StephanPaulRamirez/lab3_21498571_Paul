@@ -2,10 +2,11 @@ package codigofuente_21498571_PaulRamirez.TDAs_21498571_PaulRamirez;
 import codigofuente_21498571_PaulRamirez.Interfaces_21498571_PaulRamirez.IUsuario_21498571_PaulRamirez;
 
 import java.util.Objects;
-public class UsuarioComun implements IUsuario_21498571_PaulRamirez{
+
+public class Administrador_21498571_PaulRamirez implements IUsuario_21498571_PaulRamirez{
     private String username;
 
-    public UsuarioComun(String username) {
+    public Administrador_21498571_PaulRamirez(String username) {
         this.username = username;
     }
 
@@ -18,13 +19,13 @@ public class UsuarioComun implements IUsuario_21498571_PaulRamirez{
     public boolean equals(Object u) {
         if (this == u) return true;
         if (u == null || getClass() != u.getClass()) return false;
-        UsuarioComun that = (UsuarioComun) u;
-        return (username.equals(that.username));
+        Administrador_21498571_PaulRamirez that = (Administrador_21498571_PaulRamirez) u;
+        return Objects.equals(username, that.username);
     }
 
     @Override
     public String toString() {
-        return "\nUsuarioComun{" +
+        return "\nAdministrador{" +
                 "username='" + username + '\'' +
                 '}';
     }

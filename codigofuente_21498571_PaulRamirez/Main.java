@@ -1,9 +1,8 @@
 package codigofuente_21498571_PaulRamirez;
 
 
-import codigofuente_21498571_PaulRamirez.TDAs_21498571_PaulRamirez.Chatbot_21498571_PaulRamirez;
-import codigofuente_21498571_PaulRamirez.TDAs_21498571_PaulRamirez.Flow_21498571_PaulRamirez;
-import codigofuente_21498571_PaulRamirez.TDAs_21498571_PaulRamirez.Option_21498571_PaulRamirez;
+import codigofuente_21498571_PaulRamirez.Interfaces_21498571_PaulRamirez.IUsuario_21498571_PaulRamirez;
+import codigofuente_21498571_PaulRamirez.TDAs_21498571_PaulRamirez.*;
 
 import java.util.List;
 
@@ -18,11 +17,18 @@ public class Main {
                 2, 1, List.of("como", "estas"));
         Flow_21498571_PaulRamirez F1 = new Flow_21498571_PaulRamirez(1, "flow1", List.of(OP1));
         F1.flowAddOption(OP2);
-        Flow_21498571_PaulRamirez F2 = new Flow_21498571_PaulRamirez(1, "flow2", List.of(OP1,OP3));
+        Flow_21498571_PaulRamirez F2 = new Flow_21498571_PaulRamirez(2, "flow2", List.of(OP1,OP3));
         Chatbot_21498571_PaulRamirez C1 = new Chatbot_21498571_PaulRamirez(1, "C1",
                 "hola",1, List.of(F1));
         C1.chatbotAddFlow(F2);
     System.out.println(C1.toString());
+    UsuarioComun_21498571_PaulRamirez u = new UsuarioComun_21498571_PaulRamirez("hola");
+    System_21498571_PaulRamirez s = new System_21498571_PaulRamirez("1",1,
+            List.of(C1));
+    s.systemAddUser(u);
+    s.systemLogin("hola");
+    System.out.println(s.toString());
+    Menu_21498571_PaulRamirez.start();
 
     }
 }

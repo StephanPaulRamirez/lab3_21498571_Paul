@@ -3,6 +3,7 @@ import codigofuente_21498571_PaulRamirez.Interfaces_21498571_PaulRamirez.IChatbo
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Flow;
 
 
@@ -20,7 +21,6 @@ public class Chatbot_21498571_PaulRamirez implements IChatbot_21498571_PaulRamir
         this.welcomeMessage = welcomeMessage;
         this.startFlowId = startFlowId;
         this.flows = new ArrayList<>();
-        int n = flows.size();
         for (Flow_21498571_PaulRamirez flow : flows) {
             if (!(this.flows.contains(flow))) {
                 this.flows.add(flow);
@@ -62,12 +62,20 @@ public class Chatbot_21498571_PaulRamirez implements IChatbot_21498571_PaulRamir
 
     @Override
     public String toString() {
-        return "\nChatbot_21498571_PaulRamirez{" +
+        return "\nChatbot{" +
                 "chatbotID=" + chatbotID +
                 ", name='" + name + '\'' +
                 ", welcomeMessage='" + welcomeMessage + '\'' +
                 ", startFlowId=" + startFlowId +
                 ", flows=" + flows.toString() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object c) {
+        if (this == c) return true;
+        if (c == null || getClass() != c.getClass()) return false;
+        Chatbot_21498571_PaulRamirez that = (Chatbot_21498571_PaulRamirez) c;
+        return chatbotID == that.chatbotID;
     }
 }

@@ -13,7 +13,6 @@ public class Flow_21498571_PaulRamirez implements IFlow_21498571_PaulRamirez {
         this.id = id;
         this.nameMsg = nameMsg;
         this.option = new ArrayList<>();
-        int n = option.size();
         for (Option_21498571_PaulRamirez opt : option) {
             if (!(this.option.contains(opt))) {
                 this.option.add(opt);
@@ -23,7 +22,7 @@ public class Flow_21498571_PaulRamirez implements IFlow_21498571_PaulRamirez {
 
     @Override
     public String toString() {
-        return "\nFlow_21498571_PaulRamirez{" +
+        return "\nFlow{" +
                 "id=" + id +
                 ", nameMsg='" + nameMsg + '\'' +
                 ", option=" + option.toString() +

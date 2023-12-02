@@ -3,11 +3,12 @@ import codigofuente_21498571_PaulRamirez.Interfaces_21498571_PaulRamirez.IUsuari
 
 import java.util.Objects;
 
-public class Administrador implements IUsuario_21498571_PaulRamirez{
+public class UsuarioComun_21498571_PaulRamirez implements IUsuario_21498571_PaulRamirez{
     private String username;
-
-    public Administrador(String username) {
+    private String chatHistory;
+    public UsuarioComun_21498571_PaulRamirez(String username) {
         this.username = username;
+        this.chatHistory = "";
     }
 
     @Override
@@ -15,18 +16,23 @@ public class Administrador implements IUsuario_21498571_PaulRamirez{
         return username;
     }
 
+    public String getChatHistory() {
+        return chatHistory;
+    }
+
     @Override
     public boolean equals(Object u) {
         if (this == u) return true;
         if (u == null || getClass() != u.getClass()) return false;
-        Administrador that = (Administrador) u;
-        return (username.equals(that.username));
+        UsuarioComun_21498571_PaulRamirez that = (UsuarioComun_21498571_PaulRamirez) u;
+        return Objects.equals(username, that.username);
     }
 
     @Override
     public String toString() {
-        return "\nAdministrador{" +
+        return "\nUsuarioComun{" +
                 "username='" + username + '\'' +
                 '}';
     }
+
 }
