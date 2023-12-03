@@ -13,4 +13,5 @@ public interface IChatbot_21498571_PaulRamirez {
     void chatbotAddFlow(Flow_21498571_PaulRamirez flow);
     String toString();
     boolean equals(Object c);
+    Flow_21498571_PaulRamirez searchFlow(int id);
 }

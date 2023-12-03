@@ -3,8 +3,6 @@ import codigofuente_21498571_PaulRamirez.Interfaces_21498571_PaulRamirez.IChatbo
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.Flow;
 
 
 public class Chatbot_21498571_PaulRamirez implements IChatbot_21498571_PaulRamirez {
@@ -77,5 +75,15 @@ public class Chatbot_21498571_PaulRamirez implements IChatbot_21498571_PaulRamir
         if (c == null || getClass() != c.getClass()) return false;
         Chatbot_21498571_PaulRamirez that = (Chatbot_21498571_PaulRamirez) c;
         return chatbotID == that.chatbotID;
+    }
+
+    @Override
+    public Flow_21498571_PaulRamirez searchFlow(int id){
+        for(Flow_21498571_PaulRamirez flow : flows){
+            if(flow.getId() == id){
+                return flow;
+            }
+        }
+        return null;
     }
 }

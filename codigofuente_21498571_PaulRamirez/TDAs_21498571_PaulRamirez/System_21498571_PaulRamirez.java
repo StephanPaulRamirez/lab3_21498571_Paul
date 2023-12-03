@@ -24,9 +24,9 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
                 this.chatbots.add(chatbot);
             }
         }
-        this.users = new ArrayList<IUsuario_21498571_PaulRamirez>();
+        this.users = new ArrayList<>();
         this.loggedUser = "";
-        this.actual = new ArrayList<Integer>();
+        this.actual = new ArrayList<>();
     }
 
     @Override
@@ -68,7 +68,6 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
     }
     @Override
     public void systemLogin(String user){
-        UsuarioComun_21498571_PaulRamirez usuario= new UsuarioComun_21498571_PaulRamirez(user);
         if(this.loggedUser.isEmpty()){
             for(IUsuario_21498571_PaulRamirez u: users){
                 if(u.getUserName().equals(user)){
@@ -81,9 +80,28 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
     @Override
     public void systemLogout(){
         this.loggedUser = "";
-        this.actual = new ArrayList<Integer>();
+        this.actual = new ArrayList<>();
     }
 
+    @Override
+    public IUsuario_21498571_PaulRamirez searchUser(String nickname){
+        for(IUsuario_21498571_PaulRamirez user : this.users){
+            if(user.getUserName().equals(nickname)){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Chatbot_21498571_PaulRamirez searchChatbot(int id){
+        for(Chatbot_21498571_PaulRamirez chatbot : chatbots){
+            if(chatbot.getId() == id){
+                return chatbot;
+            }
+        }
+        return null;
+    }
     @Override
     public String toString() {
         return "\nSystem{" +

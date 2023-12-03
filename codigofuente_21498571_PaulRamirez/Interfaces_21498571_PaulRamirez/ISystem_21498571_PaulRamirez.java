@@ -15,5 +15,7 @@ public interface ISystem_21498571_PaulRamirez {
     void systemAddUser(IUsuario_21498571_PaulRamirez u);
     void systemLogin(String u);
     void systemLogout();
+    IUsuario_21498571_PaulRamirez searchUser(String n);
+    Chatbot_21498571_PaulRamirez searchChatbot(int i);
     String toString();
 }
