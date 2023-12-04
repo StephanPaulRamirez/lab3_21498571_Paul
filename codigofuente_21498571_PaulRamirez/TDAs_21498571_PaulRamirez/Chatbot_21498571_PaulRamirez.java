@@ -20,7 +20,7 @@ public class Chatbot_21498571_PaulRamirez implements IChatbot_21498571_PaulRamir
         this.startFlowId = startFlowId;
         this.flows = new ArrayList<>();
         for (Flow_21498571_PaulRamirez flow : flows) {
-            if (!(this.flows.contains(flow))) {
+            if (!(this.getFlows().contains(flow))) {
                 this.flows.add(flow);
             }
         }
@@ -52,10 +52,12 @@ public class Chatbot_21498571_PaulRamirez implements IChatbot_21498571_PaulRamir
     }
 
     @Override
-    public void chatbotAddFlow(Flow_21498571_PaulRamirez flow) {
-        if(!(this.flows.contains(flow))) {
+    public boolean chatbotAddFlow(Flow_21498571_PaulRamirez flow) {
+        if(!(this.getFlows().contains(flow))) {
             this.flows.add(flow);
+            return true;
         }
+        return false;
     }
 
     @Override

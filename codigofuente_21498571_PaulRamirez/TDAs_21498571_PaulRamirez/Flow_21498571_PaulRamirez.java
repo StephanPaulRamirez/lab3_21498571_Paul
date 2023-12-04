@@ -14,7 +14,7 @@ public class Flow_21498571_PaulRamirez implements IFlow_21498571_PaulRamirez {
         this.nameMsg = nameMsg;
         this.option = new ArrayList<>();
         for (Option_21498571_PaulRamirez opt : option) {
-            if (!(this.option.contains(opt))) {
+            if (!(this.getOption().contains(opt))) {
                 this.option.add(opt);
             }
         }
@@ -45,10 +45,12 @@ public class Flow_21498571_PaulRamirez implements IFlow_21498571_PaulRamirez {
     }
 
     @Override
-    public void flowAddOption(Option_21498571_PaulRamirez op) {
-        if(!(this.option.contains(op))){
+    public boolean flowAddOption(Option_21498571_PaulRamirez op) {
+        if(!(this.getOption().contains(op))){
             this.option.add(op);
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -56,6 +58,15 @@ public class Flow_21498571_PaulRamirez implements IFlow_21498571_PaulRamirez {
         if (this == flow) return true;
         if (flow == null || getClass() != flow.getClass()) return false;
         Flow_21498571_PaulRamirez that = (Flow_21498571_PaulRamirez) flow;
-        return id == that.id;
+        return this.getId() == that.id;
+    }
+
+    @Override
+    public String flowGetOptionsMsg(List<Option_21498571_PaulRamirez> O){
+        String optionMsg = "";
+        for (Option_21498571_PaulRamirez o : O){
+            optionMsg = optionMsg + "\n" + o.getMsg();
+        }
+        return  optionMsg;
     }
 }

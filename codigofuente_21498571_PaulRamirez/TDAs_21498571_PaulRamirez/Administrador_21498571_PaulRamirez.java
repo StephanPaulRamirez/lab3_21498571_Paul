@@ -5,14 +5,21 @@ import java.util.Objects;
 
 public class Administrador_21498571_PaulRamirez implements IUsuario_21498571_PaulRamirez{
     private String username;
+    private String chatHistory;
 
     public Administrador_21498571_PaulRamirez(String username) {
         this.username = username;
+        this.chatHistory = "";
     }
 
     @Override
     public String getUserName() {
         return username;
+    }
+
+    @Override
+    public String getChatHistory() {
+        return chatHistory;
     }
 
     @Override
@@ -28,5 +35,9 @@ public class Administrador_21498571_PaulRamirez implements IUsuario_21498571_Pau
         return "\nAdministrador{" +
                 "username='" + username + '\'' +
                 '}';
+    }
+    @Override
+    public void setChatHistory(String newChatHistory){
+        this.chatHistory = newChatHistory;
     }
 }

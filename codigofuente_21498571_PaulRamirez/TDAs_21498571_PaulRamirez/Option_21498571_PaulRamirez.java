@@ -41,7 +41,7 @@ public class Option_21498571_PaulRamirez implements IOption_21498571_PaulRamirez
         if (this == opt) return true;
         if (opt == null || getClass() != opt.getClass()) return false;
         Option_21498571_PaulRamirez that = (Option_21498571_PaulRamirez) opt;
-        return code == that.code;
+        return this.getId() == that.code;
     }
 
     @Override

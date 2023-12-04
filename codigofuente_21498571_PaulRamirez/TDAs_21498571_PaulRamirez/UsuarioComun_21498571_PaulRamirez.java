@@ -16,6 +16,7 @@ public class UsuarioComun_21498571_PaulRamirez implements IUsuario_21498571_Paul
         return username;
     }
 
+    @Override
     public String getChatHistory() {
         return chatHistory;
     }
@@ -35,4 +36,8 @@ public class UsuarioComun_21498571_PaulRamirez implements IUsuario_21498571_Paul
                 '}';
     }
 
+    @Override
+    public void setChatHistory(String newChatHistory){
+        this.chatHistory = newChatHistory;
+    }
 }

@@ -3,7 +3,9 @@ package codigofuente_21498571_PaulRamirez.TDAs_21498571_PaulRamirez;
 import codigofuente_21498571_PaulRamirez.Interfaces_21498571_PaulRamirez.IUsuario_21498571_PaulRamirez;
 import codigofuente_21498571_PaulRamirez.Interfaces_21498571_PaulRamirez.ISystem_21498571_PaulRamirez;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez{
@@ -13,6 +15,8 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
     private List<IUsuario_21498571_PaulRamirez> users;
     private String loggedUser;
     private List<Integer> actual;
+    private LocalDate creationDate = LocalDate.now();
+
 
     public System_21498571_PaulRamirez(String name, int InitialChatbotCodeLink,
                                        List<Chatbot_21498571_PaulRamirez> chatbots) {
@@ -54,21 +58,27 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
         return actual;
     }
     @Override
-    public void systemAddChatbot(Chatbot_21498571_PaulRamirez chatbot){
-        if(!(this.chatbots.contains(chatbot))) {
+    public boolean systemAddChatbot(Chatbot_21498571_PaulRamirez chatbot){
+        if(!(this.getChatbots().contains(chatbot))) {
             this.chatbots.add(chatbot);
+            return true;
         }
+        return false;
     }
 
     @Override
-    public void systemAddUser(IUsuario_21498571_PaulRamirez user){
-        if(!(this.users.contains(user))) {
-            this.users.add(user);
+    public boolean systemAddUser(IUsuario_21498571_PaulRamirez user){
+        for(IUsuario_21498571_PaulRamirez u : this.getUsers()){
+            if(u.getUserName().equals(user.getUserName())){
+                return false;
+            }
         }
+        this.users.add(user);
+        return true;
     }
     @Override
     public void systemLogin(String user){
-        if(this.loggedUser.isEmpty()){
+        if(this.getLoggedUser().isEmpty()){
             for(IUsuario_21498571_PaulRamirez u: users){
                 if(u.getUserName().equals(user)){
                     this.loggedUser = user;
@@ -111,6 +121,55 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
                 ", users=" + users +
                 ", loggedUser='" + loggedUser + '\'' +
                 ", actual=" + actual +
+                ", creationDate=" + creationDate +
                 '}';
+    }
+
+    @Override
+    public String registerAppendString(String message,
+                                       Chatbot_21498571_PaulRamirez chatbot,
+                                       Flow_21498571_PaulRamirez flow){
+        LocalDate date = LocalDate.now();
+        return  ("\n" + date + "-" + this.getLoggedUser() + ": " + message +
+                "\n" + date + "-" + chatbot.getName() + ": " + flow.getNameMsg()  +
+                flow.flowGetOptionsMsg(flow.getOption()));
+    }
+
+    public String talk(String message){
+        if(this.getLoggedUser().isEmpty()){
+            return "";
+        }
+        Chatbot_21498571_PaulRamirez c;
+        Flow_21498571_PaulRamirez f;
+        if(this.getActual().isEmpty()){
+            c = this.searchChatbot(this.getInitialChatbotId());
+            f = c.searchFlow(c.getStartFlowId());
+            actual = List.of(this.getInitialChatbotId(), c.getStartFlowId());
+        }
+        else {
+            c = this.searchChatbot(actual.get(0));
+            f = c.searchFlow(actual.get(1));
+            boolean encontrado = false;
+            for(Option_21498571_PaulRamirez o : f.getOption()){
+                if(Integer.toString(o.getId()).equals(message) || o.getKeyword().contains(message)){
+                    actual = List.of(o.getChatbotCodeLink(), o.getInitialFlowCodeLink());
+                    encontrado = true;
+                }
+            }
+            if (!encontrado){
+                return "";
+            }
+            c = this.searchChatbot(actual.get(0));
+            f = c.searchFlow(actual.get(1));
+        }
+        StringBuilder chatHistory = new StringBuilder(this.searchUser(this.getLoggedUser()).getChatHistory());
+        String registerAppend = this.registerAppendString(message, c, f);
+        chatHistory.append(registerAppend);
+        this.searchUser(this.getLoggedUser()).setChatHistory(chatHistory.toString());
+        return registerAppend;
+    }
+
+    public String synthesis(String nickname){
+        return this.searchUser(nickname).getChatHistory();
     }
 }

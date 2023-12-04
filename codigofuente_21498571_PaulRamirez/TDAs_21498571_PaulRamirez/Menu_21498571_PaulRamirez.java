@@ -9,8 +9,7 @@ public class Menu_21498571_PaulRamirez {
         Scanner input = new Scanner(System.in);
         final int MENU_EXIT_OPTION = 3;
         int choice1;
-        System_21498571_PaulRamirez system = new System_21498571_PaulRamirez("sistema", 1,
-                List.of());
+        System_21498571_PaulRamirez system = initialSystem();
         do {
             printMenuInicio();
             choice1 = input.nextInt();
@@ -28,9 +27,11 @@ public class Menu_21498571_PaulRamirez {
                     }
                     Administrador_21498571_PaulRamirez admin = new Administrador_21498571_PaulRamirez("condition");
                     if(system.searchUser(nickname).getClass() == admin.getClass()) {
+                        System.out.println("Bienvenido " + nickname + " usted es administrador.");
                         adminMenu(input, system);
                     }
                     else{
+                        System.out.println("Bienvenido " + nickname + " usted es usuario comun.");
                         normalMenu(input, system);
                     }
                     break;
@@ -43,13 +44,14 @@ public class Menu_21498571_PaulRamirez {
                         printMenuRegistro();
                         choice3 = input.nextInt();
                     }
+                    boolean boolregister;
                     if(choice3 == 1){
                         System.out.println("### Sistema de Chatbots - Registro Usuario Normal ###");
                         System.out.print("INTRODUZCA NOMBRE DEL USUARIO NORMAL: ");
                         input.nextLine();
                         String nickUser = input.nextLine();
                         UsuarioComun_21498571_PaulRamirez newUser = new UsuarioComun_21498571_PaulRamirez(nickUser);
-                        system.systemAddUser(newUser);
+                        boolregister = system.systemAddUser(newUser);
                     }
                     else{
                         System.out.println("### Sistema de Chatbots - Registro Usuario Administrador ###");
@@ -57,7 +59,13 @@ public class Menu_21498571_PaulRamirez {
                         input.nextLine();
                         String nickAdmin = input.nextLine();
                         Administrador_21498571_PaulRamirez newAdmin = new Administrador_21498571_PaulRamirez(nickAdmin);
-                        system.systemAddUser(newAdmin);
+                        boolregister = system.systemAddUser(newAdmin);
+                    }
+                    if(boolregister){
+                        System.out.println("Se ha completado exitosamente el registro de usuario!");
+                    }
+                    else {
+                        System.out.println("El nombre de usuario ingresado ya esta registrado en el sistema");
                     }
                     break;
                 case 3:
@@ -153,7 +161,13 @@ public class Menu_21498571_PaulRamirez {
                     List<Option_21498571_PaulRamirez> O = getUserOptions(input);
                     Flow_21498571_PaulRamirez f = new Flow_21498571_PaulRamirez(idflow,
                             namemsg, O);
-                    chatbot.chatbotAddFlow(f);
+                    boolean boolflow = chatbot.chatbotAddFlow(f);
+                    if (boolflow){
+                        System.out.println("Y se agrego exitosamente el flow al chatbot!");
+                    }
+                    else {
+                        System.out.println("Pero no se completo la agregacion del flow porque el chatbot ya contenia otro con el mismo id,\n porfavor cree otro con distinto id");
+                    }
                     break;
                 case 2:
                     System.out.print("ingrese el id del flow a modificar: ");
@@ -179,7 +193,13 @@ public class Menu_21498571_PaulRamirez {
                     List<String> K = getUserKeywords(input);
                     Option_21498571_PaulRamirez o = new Option_21498571_PaulRamirez(idoption,
                             msg, CCL, IFCL, K);
-                    flow.flowAddOption(o);
+                    boolean booloption = flow.flowAddOption(o);
+                    if (booloption){
+                        System.out.println("Se creo exitosamente el option y se agrego la opcion creada al flow!");
+                    }
+                    else{
+                        System.out.println("Se creo la opcion, pero no se completo la agregacion del option porque el flow ya contenia otro con el mismo id,\n porfavor cree otro con distinto id");
+                    }
                     break;
                 case 3:
                     System.out.println(chatbot.getFlows().toString());
@@ -214,7 +234,7 @@ public class Menu_21498571_PaulRamirez {
                     System.out.println(F);
                     break;
                 case 3:
-                    System.out.println("fin de la creacion de flows");
+                    System.out.println("Se creo el chatbot con los flows creados pero se mantuvieron solo las primeras ocurrencias para cada id");
                     break;
                 default:
                     System.out.println(choiceChatbot + " is not a valid option! Please select correct option.");
@@ -247,12 +267,13 @@ public class Menu_21498571_PaulRamirez {
                     Option_21498571_PaulRamirez o = new Option_21498571_PaulRamirez(idoption,
                             msg, CCL, IFCL, K);
                     O.add(o);
+                    System.out.println("Se ha creado exitosamente el option!");
                     break;
                 case 2:
                     System.out.println(O);
                     break;
                 case 3:
-                    System.out.println("fin de la creacion de options");
+                    System.out.println("Se creo el flow con las opciones creadas pero se mantuvieron solo las primeras ocurrencias para cada id");
                     break;
                 default:
                     System.out.println(choiceFlow + " is not a valid option! Please select correct option.");
@@ -302,7 +323,13 @@ public class Menu_21498571_PaulRamirez {
                     List<Flow_21498571_PaulRamirez> F1 = getUserFlows(input);
                     Chatbot_21498571_PaulRamirez c = new Chatbot_21498571_PaulRamirez(id, nombre,
                             message, initialFlowId, F1);
-                    system.systemAddChatbot(c);
+                    boolean boolchatbot = system.systemAddChatbot(c);
+                    if (boolchatbot){
+                        System.out.println("Y se ha añadido exitosamente al sistema!");
+                    }
+                    else {
+                        System.out.println("pero no se agrego, debido a que ya existia uno con el mismo id en el sistema, porfavor cree otro con distinto id");
+                    }
                     break;
                 case 2:
                     System.out.print("ingrese el id del chatbot a modificar: ");
@@ -316,12 +343,14 @@ public class Menu_21498571_PaulRamirez {
                     menuModify(input, modC);
                     break;
                 case 3:
-                    System.out.print("ingrese el id del chatbot a ejecutar en el sistema: ");
-                    int idEjecucionChatbot = input.nextInt();
-                    input.nextLine();
+                    menuTalk(input, system);
                     break;
                 case 4:
-                    System.out.println(system.getChatbots().toString());
+                    System.out.print("Se muestra a continuacion el historial del usuario "
+                            + system.getLoggedUser() + "\n");
+                    System.out.println(system.synthesis(system.getLoggedUser()));
+                    System.out.println("\n");
+                    System.out.println("Fin del Historial");
                     break;
                 case 5:
                     System.out.println(system.getChatbots().toString());
@@ -344,10 +373,14 @@ public class Menu_21498571_PaulRamirez {
             choice3 = input.nextInt();
             switch (choice3) {
                 case 1:
-
+                    menuTalk(input, system);
                     break;
                 case 2:
-
+                    System.out.print("Se muestra a continuacion el historial del usuario "
+                            + system.getLoggedUser() + "\n");
+                    System.out.println(system.synthesis(system.getLoggedUser()));
+                    System.out.println("\n");
+                    System.out.println("Fin del Historial");
                     break;
                 case 3:
                     system.systemLogout();
@@ -357,6 +390,104 @@ public class Menu_21498571_PaulRamirez {
                     System.out.println(choice3 + " is not a valid option! Please select correct option.");
             }
         } while (choice3 != MENU_EXIT_OPTION2);
+    }
+
+    private static void menuTalk(Scanner input, System_21498571_PaulRamirez system){
+        System.out.print("### Sistema de Chatbots - Ejecucion del sistema de chatbots ### \n" +
+                "Ingrese como opcion SALIR, para salir de la conversacion\n"+
+                "porfavor comience la conversacion enviando el primer mensaje: ");
+        input.nextLine();
+        String mensaje = input.nextLine();
+        if(mensaje.equals("SALIR")){
+            return;
+        }
+        System.out.println(system.talk(mensaje));
+        do{
+            System.out.print("Seleccione una opcion: ");
+            mensaje = input.nextLine();
+            String response = system.talk(mensaje);
+            if(mensaje.equals("SALIR")){
+                response = "SALIR";
+            }
+            switch (response) {
+                case "":
+                    System.out.println(mensaje + " no es una opcion valida");
+                    break;
+                case "SALIR":
+                    System.out.println("Conversacion Finalizada, historial guardado");
+                    break;
+                default:
+                    System.out.println(response);
+            }
+        }while (!mensaje.equals("SALIR"));
+        String username = system.getLoggedUser();
+        system.systemLogout();
+        system.systemLogin(username);
+    }
+
+    private static System_21498571_PaulRamirez initialSystem(){
+        Option_21498571_PaulRamirez OP1 = new Option_21498571_PaulRamirez(1, "1) Viajar",
+                1, 1, List.of("viajar", "turistear", "conocer"));
+        Option_21498571_PaulRamirez OP2 = new Option_21498571_PaulRamirez(2, "2) Estudiar",
+                2, 1, List.of("estudiar", "aprender", "perfeccionarme"));
+        Flow_21498571_PaulRamirez F1 = new Flow_21498571_PaulRamirez(1, "Flujo Principal Chatbot0\nBienvenido\n¿Qué te gustaría hacer?",
+                List.of(OP1,OP2));
+        Chatbot_21498571_PaulRamirez C0 = new Chatbot_21498571_PaulRamirez(0, "Inicial",
+                "Bienvenido\n¿Qué te gustaría hacer?", 1, List.of(F1));
+
+        Option_21498571_PaulRamirez OP3 = new Option_21498571_PaulRamirez(1, "1) New York, USA",
+                1, 2, List.of("USA", "Estados Unidos", "New York"));
+        Option_21498571_PaulRamirez OP4 = new Option_21498571_PaulRamirez(2, "2) París, Francia",
+                1, 1, List.of("Paris", "Eiffel"));
+        Option_21498571_PaulRamirez OP5 = new Option_21498571_PaulRamirez(3, "3) Torres del Paine, Chile",
+                1, 1, List.of("Chile", "Torres", "Paine", "Torres Paine", "Torres del Paine"));
+        Option_21498571_PaulRamirez OP6 = new Option_21498571_PaulRamirez(4, "4) Volver",
+                0, 1, List.of("Regresar", "Salir", "Volver"));
+        Flow_21498571_PaulRamirez F2 = new Flow_21498571_PaulRamirez(1, "Flujo 1 Chatbot1\n¿Dónde te Gustaría ir?",
+                List.of(OP3, OP4, OP5, OP6));
+        Option_21498571_PaulRamirez OP7 = new Option_21498571_PaulRamirez(1, "1) Central Park",
+                1, 2, List.of("Central", "Park", "Central Park"));
+        Option_21498571_PaulRamirez OP8 = new Option_21498571_PaulRamirez(2, "2) Museos",
+                1, 2, List.of("Museo"));
+        Option_21498571_PaulRamirez OP9 = new Option_21498571_PaulRamirez(3, "3) Ningún otro atractivo",
+                1, 3, List.of("Ninguno", "Ningun otro", "Ningun otro atractivo"));
+        Option_21498571_PaulRamirez OP10 = new Option_21498571_PaulRamirez(4, "4) Cambiar destino",
+                1, 1, List.of("Cambiar", "Volver", "Salir"));
+        Flow_21498571_PaulRamirez F3 = new Flow_21498571_PaulRamirez(2, "Flujo 2 Chatbot1\n¿Qué atractivos te gustaría visitar?",
+                List.of(OP7, OP8, OP9, OP10));
+        Option_21498571_PaulRamirez OP11 = new Option_21498571_PaulRamirez(1, "1) Solo",
+                1, 3, List.of("Solo"));
+        Option_21498571_PaulRamirez OP12 = new Option_21498571_PaulRamirez(2, "2) En pareja",
+                1, 3, List.of("Pareja"));
+        Option_21498571_PaulRamirez OP13 = new Option_21498571_PaulRamirez(3, "3) En familia",
+                1, 3, List.of("Familia"));
+        Option_21498571_PaulRamirez OP14 = new Option_21498571_PaulRamirez(4, "4) Agregar más atractivos",
+                1, 2, List.of("Volver", "Atractivos"));
+        Option_21498571_PaulRamirez OP15 = new Option_21498571_PaulRamirez(5, "5) En realidad quiero otro destino",
+                1, 1, List.of("Cambiar destino"));
+        Flow_21498571_PaulRamirez F4 = new Flow_21498571_PaulRamirez(3, "Flujo 3 Chatbot1\n¿Vas solo o acompañado?",
+                List.of(OP11, OP12, OP13, OP14, OP15));
+        Chatbot_21498571_PaulRamirez C1 = new Chatbot_21498571_PaulRamirez(1, "Agencia Viajes",
+                "Bienvenido\n¿Dónde quieres viajar?", 1, List.of(F2,F3,F4));
+
+        Option_21498571_PaulRamirez OP16 = new Option_21498571_PaulRamirez(1, "1) Carrera Técnica",
+                2, 1, List.of("Técnica"));
+        Option_21498571_PaulRamirez OP17 = new Option_21498571_PaulRamirez(2, "2) Postgrado",
+                2, 1, List.of("Doctorado", "Magister", "Postgrado"));
+        Option_21498571_PaulRamirez OP18 = new Option_21498571_PaulRamirez(3, "3) Volver",
+                0, 1, List.of("Volver", "Salir", "Regresar"));
+        Flow_21498571_PaulRamirez F5 = new Flow_21498571_PaulRamirez(1, "Flujo 1 Chatbot2\n¿Qué te gustaría estudiar?",
+                List.of(OP16, OP17, OP18));
+        Chatbot_21498571_PaulRamirez C2 = new Chatbot_21498571_PaulRamirez(2, "Orientador Académico",
+                "Bienvenido\n¿Qué te gustaría estudiar?", 1, List.of(F5));
+
+        System_21498571_PaulRamirez S0 = new System_21498571_PaulRamirez("Chatbots Paradigmas",
+                0, List.of(C0, C1, C2));
+        UsuarioComun_21498571_PaulRamirez U1 = new UsuarioComun_21498571_PaulRamirez("normal");
+        Administrador_21498571_PaulRamirez U2 = new Administrador_21498571_PaulRamirez("admin");
+        S0.systemAddUser(U1);
+        S0.systemAddUser(U2);
+        return S0;
     }
 }
 
