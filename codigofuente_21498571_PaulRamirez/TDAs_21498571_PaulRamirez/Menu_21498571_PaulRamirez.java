@@ -9,6 +9,9 @@ public class Menu_21498571_PaulRamirez {
         Scanner input = new Scanner(System.in);
         final int MENU_EXIT_OPTION = 3;
         int choice1;
+        System.out.println("### Sistema de Chatbots ###");
+        System.out.println("Presione Enter para inicializar el sistema");
+        input.nextLine();
         System_21498571_PaulRamirez system = initialSystem();
         do {
             printMenuInicio();
@@ -47,7 +50,7 @@ public class Menu_21498571_PaulRamirez {
                     boolean boolregister;
                     if(choice3 == 1){
                         System.out.println("### Sistema de Chatbots - Registro Usuario Normal ###");
-                        System.out.print("INTRODUZCA NOMBRE DEL USUARIO NORMAL: ");
+                        System.out.println("INTRODUZCA NOMBRE DEL USUARIO NORMAL: ");
                         input.nextLine();
                         String nickUser = input.nextLine();
                         UsuarioComun_21498571_PaulRamirez newUser = new UsuarioComun_21498571_PaulRamirez(nickUser);
@@ -55,7 +58,7 @@ public class Menu_21498571_PaulRamirez {
                     }
                     else{
                         System.out.println("### Sistema de Chatbots - Registro Usuario Administrador ###");
-                        System.out.print("INTRODUZCA NOMBRE DEL USUARIO ADMINISTRADOR: ");
+                        System.out.println("INTRODUZCA NOMBRE DEL USUARIO ADMINISTRADOR: ");
                         input.nextLine();
                         String nickAdmin = input.nextLine();
                         Administrador_21498571_PaulRamirez newAdmin = new Administrador_21498571_PaulRamirez(nickAdmin);
@@ -84,54 +87,54 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("1. Login de Usuario ");
         System.out.println("2. Registro de Usuario ");
         System.out.println("3. Finalizar Programa ");
-        System.out.print("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
     private static void printMenuLogin() {
         System.out.println("### Sistema de Chatbots - Login ###");
-        System.out.print("INTRODUZCA NOMBRE DE USUARIO: ");
+        System.out.println("INTRODUZCA NOMBRE DE USUARIO: ");
     }
     private static void printMenuRegistro() {
         System.out.println("### Sistema de Chatbots - Registro ###");
         System.out.println("1. Registrar usuario normal ");
         System.out.println("2. Registrar usuario administrador ");
-        System.out.print("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
     private static void printMenuNormal() {
         System.out.println("### Sistema de Chatbots - Usuario Normal ###");
         System.out.println("1. Hablar ");
-        System.out.println("2. Sintestis ");
+        System.out.println("2. Mostrar Sintesis ");
         System.out.println("3. Salir ");
-        System.out.print("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
     private static void printMenuChatbots() {
         System.out.println("### Sistema de Chatbots - Usuario Administrador ###");
         System.out.println("1. Crear un Chatbot ");
         System.out.println("2. Modificar un Chatbot ");
-        System.out.println("3. Ejecutar un Chatbot ");
-        System.out.println("4. Visualizar todos los chatbot existentes en el sistema ");
+        System.out.println("3. Hablar ");
+        System.out.println("4. Mostrar Sintesis ");
         System.out.println("5. Visualizar todos los Chatbot con sus flujos y opciones creadas ");
         System.out.println("6. Salir ");
-        System.out.print("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
     private static void printMenuFlows() {
         System.out.println("### Sistema de Chatbots - Crear Flows ###");
         System.out.println("1. Crear un Flow ");
         System.out.println("2. Visualizar los Flows con sus opciones creadas ");
         System.out.println("3. Salir ");
-        System.out.print("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
     private static void printMenuOptions() {
         System.out.println("### Sistema de Chatbots - Crear Options ###");
         System.out.println("1. Crear un Option ");
         System.out.println("2. Visualizar todos los Options con sus keywords ");
         System.out.println("3. Salir ");
-        System.out.print("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
     private static void printMenuKeywords() {
         System.out.println("### Sistema de Chatbots - Crear Keywords ###");
         System.out.println("1. Agregar una Keyword ");
         System.out.println("2. Salir ");
-        System.out.print("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
 
     private static void printMenuModChatbots() {
@@ -140,7 +143,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("2. Modificar un Flow ");
         System.out.println("3. Visualizar los Flows del chatbot con sus opciones creadas ");
         System.out.println("4. Salir ");
-        System.out.print("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
 
     private static void menuModify(Scanner input, Chatbot_21498571_PaulRamirez chatbot){
@@ -153,10 +156,10 @@ public class Menu_21498571_PaulRamirez {
             switch (choicemod){
                 case 1:
                     System.out.println("Ingrese a continuacion los datos del flow que se desea agregar");
-                    System.out.print("ingrese el id del flow: ");
+                    System.out.println("ingrese el id del flow: ");
                     idflow = input.nextInt();
                     input.nextLine();
-                    System.out.print("ingrese el name msg del flow: ");
+                    System.out.println("ingrese el name msg del flow: ");
                     String namemsg = input.nextLine();
                     List<Option_21498571_PaulRamirez> O = getUserOptions(input);
                     Flow_21498571_PaulRamirez f = new Flow_21498571_PaulRamirez(idflow,
@@ -166,11 +169,11 @@ public class Menu_21498571_PaulRamirez {
                         System.out.println("Y se agrego exitosamente el flow al chatbot!");
                     }
                     else {
-                        System.out.println("Pero no se completo la agregacion del flow porque el chatbot ya contenia otro con el mismo id,\n porfavor cree otro con distinto id");
+                        System.out.println("Pero no se completo la agregacion del flow porque el chatbot ya contenia otro con el mismo id,\nporfavor cree otro con distinto id");
                     }
                     break;
                 case 2:
-                    System.out.print("ingrese el id del flow a modificar: ");
+                    System.out.println("ingrese el id del flow a modificar: ");
                     idflow = input.nextInt();
                     input.nextLine();
                     Flow_21498571_PaulRamirez flow = chatbot.searchFlow(idflow);
@@ -179,15 +182,15 @@ public class Menu_21498571_PaulRamirez {
                         break;
                     }
                     System.out.println("Ingrese a continuacion los datos del option que se desea agregar");
-                    System.out.print("ingrese el id del option: ");
+                    System.out.println("ingrese el id del option: ");
                     int idoption = input.nextInt();
                     input.nextLine();
-                    System.out.print("ingrese el mensaje del option: ");
+                    System.out.println("ingrese el mensaje del option: ");
                     String msg = input.nextLine();
-                    System.out.print("ingrese el chatbotcodelink del option: ");
+                    System.out.println("ingrese el chatbotcodelink del option: ");
                     int CCL = input.nextInt();
                     input.nextLine();
-                    System.out.print("ingrese el initialFlowCodeLink del option: ");
+                    System.out.println("ingrese el initialFlowCodeLink del option: ");
                     int IFCL = input.nextInt();
                     input.nextLine();
                     List<String> K = getUserKeywords(input);
@@ -198,7 +201,7 @@ public class Menu_21498571_PaulRamirez {
                         System.out.println("Se creo exitosamente el option y se agrego la opcion creada al flow!");
                     }
                     else{
-                        System.out.println("Se creo la opcion, pero no se completo la agregacion del option porque el flow ya contenia otro con el mismo id,\n porfavor cree otro con distinto id");
+                        System.out.println("Se creo la opcion, pero no se completo la agregacion del option porque el flow ya contenia otro con el mismo id,\nporfavor cree otro con distinto id");
                     }
                     break;
                 case 3:
@@ -220,10 +223,10 @@ public class Menu_21498571_PaulRamirez {
             choiceChatbot = input.nextInt();
             switch (choiceChatbot){
                 case 1:
-                    System.out.print("ingrese el id del flow: ");
+                    System.out.println("ingrese el id del flow: ");
                     int idflow = input.nextInt();
                     input.nextLine();
-                    System.out.print("ingrese el name msg del flow: ");
+                    System.out.println("ingrese el name msg del flow: ");
                     String namemsg = input.nextLine();
                     List<Option_21498571_PaulRamirez> O = getUserOptions(input);
                     Flow_21498571_PaulRamirez f = new Flow_21498571_PaulRamirez(idflow,
@@ -252,15 +255,15 @@ public class Menu_21498571_PaulRamirez {
             choiceFlow = input.nextInt();
             switch (choiceFlow){
                 case 1:
-                    System.out.print("ingrese el id del option: ");
+                    System.out.println("ingrese el id del option: ");
                     int idoption = input.nextInt();
                     input.nextLine();
-                    System.out.print("ingrese el mensaje del option: ");
+                    System.out.println("ingrese el mensaje del option: ");
                     String msg = input.nextLine();
-                    System.out.print("ingrese el chatbotcodelink del option: ");
+                    System.out.println("ingrese el chatbotcodelink del option: ");
                     int CCL = input.nextInt();
                     input.nextLine();
-                    System.out.print("ingrese el initialFlowCodeLink del option: ");
+                    System.out.println("ingrese el initialFlowCodeLink del option: ");
                     int IFCL = input.nextInt();
                     input.nextLine();
                     List<String> K = getUserKeywords(input);
@@ -290,7 +293,7 @@ public class Menu_21498571_PaulRamirez {
             input.nextLine();
             switch (choicekeyword){
                 case 1:
-                    System.out.print("ingrese la keyword: ");
+                    System.out.println("ingrese la keyword: ");
                     K.add(input.nextLine());
                     break;
                 case 2:
@@ -310,14 +313,14 @@ public class Menu_21498571_PaulRamirez {
             choice2 = input.nextInt();
             switch (choice2) {
                 case 1:
-                    System.out.print("Ingrese el id del chatbot: ");
+                    System.out.println("Ingrese el id del chatbot: ");
                     int id = input.nextInt();
                     input.nextLine();
-                    System.out.print("Ingrese el nombre del chatbot: ");
+                    System.out.println("Ingrese el nombre del chatbot: ");
                     String nombre = input.nextLine();
-                    System.out.print("Ingrese el mensaje de bienvenida del chatbot: ");
+                    System.out.println("Ingrese el mensaje de bienvenida del chatbot: ");
                     String message = input.nextLine();
-                    System.out.print("Ingrese el id del flow para el primer link del chatbot: ");
+                    System.out.println("Ingrese el id del flow para el primer link del chatbot: ");
                     int initialFlowId = input.nextInt();
                     input.nextLine();
                     List<Flow_21498571_PaulRamirez> F1 = getUserFlows(input);
@@ -332,7 +335,7 @@ public class Menu_21498571_PaulRamirez {
                     }
                     break;
                 case 2:
-                    System.out.print("ingrese el id del chatbot a modificar: ");
+                    System.out.println("ingrese el id del chatbot a modificar: ");
                     int modId = input.nextInt();
                     input.nextLine();
                     Chatbot_21498571_PaulRamirez modC = system.searchChatbot(modId);
@@ -346,8 +349,8 @@ public class Menu_21498571_PaulRamirez {
                     menuTalk(input, system);
                     break;
                 case 4:
-                    System.out.print("Se muestra a continuacion el historial del usuario "
-                            + system.getLoggedUser() + "\n");
+                    System.out.println("Se muestra a continuacion el historial del usuario "
+                            + system.getLoggedUser());
                     System.out.println(system.synthesis(system.getLoggedUser()));
                     System.out.println("\n");
                     System.out.println("Fin del Historial");
@@ -357,7 +360,7 @@ public class Menu_21498571_PaulRamirez {
                     break;
                 case 6:
                     system.systemLogout();
-                    System.out.print("SESION CERRADA\n");
+                    System.out.println("SESION CERRADA\n");
                     break;
                 default:
                     System.out.println(choice2 + " is not a valid option! Please select correct option.");
@@ -376,7 +379,7 @@ public class Menu_21498571_PaulRamirez {
                     menuTalk(input, system);
                     break;
                 case 2:
-                    System.out.print("Se muestra a continuacion el historial del usuario "
+                    System.out.println("Se muestra a continuacion el historial del usuario "
                             + system.getLoggedUser() + "\n");
                     System.out.println(system.synthesis(system.getLoggedUser()));
                     System.out.println("\n");
@@ -393,7 +396,7 @@ public class Menu_21498571_PaulRamirez {
     }
 
     private static void menuTalk(Scanner input, System_21498571_PaulRamirez system){
-        System.out.print("### Sistema de Chatbots - Ejecucion del sistema de chatbots ### \n" +
+        System.out.println("### Sistema de Chatbots - Ejecucion del sistema de chatbots ### \n" +
                 "Ingrese como opcion SALIR, para salir de la conversacion\n"+
                 "porfavor comience la conversacion enviando el primer mensaje: ");
         input.nextLine();
@@ -403,7 +406,7 @@ public class Menu_21498571_PaulRamirez {
         }
         System.out.println(system.talk(mensaje));
         do{
-            System.out.print("Seleccione una opcion: ");
+            System.out.println("Seleccione una opcion: ");
             mensaje = input.nextLine();
             String response = system.talk(mensaje);
             if(mensaje.equals("SALIR")){

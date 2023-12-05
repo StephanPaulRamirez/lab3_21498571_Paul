@@ -34,10 +34,6 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
     }
 
     @Override
-    public String getName() {
-        return name;
-    }
-    @Override
     public int getInitialChatbotId() {
         return InitialChatbotCodeLink;
     }
@@ -57,6 +53,8 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
     public List<Integer> getActual() {
         return actual;
     }
+
+
     @Override
     public boolean systemAddChatbot(Chatbot_21498571_PaulRamirez chatbot){
         if(!(this.getChatbots().contains(chatbot))) {

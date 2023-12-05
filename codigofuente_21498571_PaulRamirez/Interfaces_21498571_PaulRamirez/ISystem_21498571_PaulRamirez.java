@@ -7,7 +7,6 @@ import codigofuente_21498571_PaulRamirez.TDAs_21498571_PaulRamirez.System_214985
 import java.util.List;
 
 public interface ISystem_21498571_PaulRamirez {
-    String getName();
     int getInitialChatbotId();
     List<Chatbot_21498571_PaulRamirez> getChatbots();
     List<IUsuario_21498571_PaulRamirez> getUsers();
