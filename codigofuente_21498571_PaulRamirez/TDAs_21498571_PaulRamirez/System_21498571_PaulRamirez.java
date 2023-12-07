@@ -17,7 +17,12 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
     private List<Integer> actual;
     private LocalDate creationDate = LocalDate.now();
 
-
+    /**
+     * Constructor de System, verifica duplicados de la lista de chatbots y mantiene la primera instancia
+     * @param name nombre del sistema
+     * @param InitialChatbotCodeLink id del chatbot inicial
+     * @param chatbots lista de chatbots
+     */
     public System_21498571_PaulRamirez(String name, int InitialChatbotCodeLink,
                                        List<Chatbot_21498571_PaulRamirez> chatbots) {
         this.name = name;
@@ -33,28 +38,56 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
         this.actual = new ArrayList<>();
     }
 
+    /**
+     * Selector del initialChatbotId
+     * @return identificador del chatbot inicial del sistema
+     */
     @Override
     public int getInitialChatbotId() {
         return InitialChatbotCodeLink;
     }
+
+    /**
+     * Selector de chatbots
+     * @return lista de chatbots del sistema
+     */
     @Override
     public List<Chatbot_21498571_PaulRamirez> getChatbots() {
         return chatbots;
     }
+
+    /**
+     * Selector de users
+     * @return lista de usuarios registrados en el sistema
+     */
     @Override
     public List<IUsuario_21498571_PaulRamirez> getUsers() {
         return users;
     }
+
+    /**
+     * Selector de Loggeduser
+     * @return username del usuario con la sesion abierta en el sistema
+     */
     @Override
     public String getLoggedUser() {
         return loggedUser;
     }
+
+    /**
+     * Selector de Actual
+     * @return lista de enteros que indican respectivamente, id del ultimo chatbot vinculado e id del ultimo flow vinculado
+     */
     @Override
     public List<Integer> getActual() {
         return actual;
     }
 
-
+    /**
+     * Modificador de System, agrega un chatbot si es que su id no se encuentra en la lista de chatbots
+     * @param chatbot chatbot a agregar
+     * @return booleano que indica si se agrego el chatbot a la lista o no
+     */
     @Override
     public boolean systemAddChatbot(Chatbot_21498571_PaulRamirez chatbot){
         if(!(this.getChatbots().contains(chatbot))) {
@@ -64,6 +97,11 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
         return false;
     }
 
+    /**
+     * Modificador de System, agrega un usuario si es que su username no se encuentra en la lista de usuarios
+     * @param user usuario a agregar
+     * @return booleano que indica si se registro el usuario no
+     */
     @Override
     public boolean systemAddUser(IUsuario_21498571_PaulRamirez user){
         for(IUsuario_21498571_PaulRamirez u : this.getUsers()){
@@ -74,6 +112,11 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
         this.users.add(user);
         return true;
     }
+
+    /**
+     * Login del sistema, verifica que el loggeduser sea un string vacio, y si lo es, asigna el username del ususario recibido a ese atributo
+     * @param user usuario que quiere inciar sesion
+     */
     @Override
     public void systemLogin(String user){
         if(this.getLoggedUser().isEmpty()){
@@ -85,12 +128,21 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
             }
         }
     }
+
+    /**
+     * Logout del sistema, asigna el loggeduser a un string vacio y reinicia actual asignandolo como una lista vacia
+     */
     @Override
     public void systemLogout(){
         this.loggedUser = "";
         this.actual = new ArrayList<>();
     }
 
+    /**
+     * Busca en la lista de usuarios el username recibido
+     * @param nickname nombre de usuario
+     * @return usuario al que le corresponde el nombre
+     */
     @Override
     public IUsuario_21498571_PaulRamirez searchUser(String nickname){
         for(IUsuario_21498571_PaulRamirez user : this.users){
@@ -101,6 +153,11 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
         return null;
     }
 
+    /**
+     * Busca un chatbot en la lista de chatbots del sistema, verificando si el id recibido es el mismo que el de un chatbot de la lista
+     * @param id identificador del chatbot que se quiere encontrar
+     * @return chatbot cuyo id corresponde al del parametro de entrada
+     */
     @Override
     public Chatbot_21498571_PaulRamirez searchChatbot(int id){
         for(Chatbot_21498571_PaulRamirez chatbot : chatbots){
@@ -110,6 +167,11 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
         }
         return null;
     }
+
+    /**
+     * toString de System
+     * @return mensaje formateado de los elementos del system para mostrarlos por pantalla
+     */
     @Override
     public String toString() {
         return "\nSystem{" +
@@ -123,6 +185,13 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
                 '}';
     }
 
+    /**
+     * Construye un string que corresponde a la fecha actual, el usuario logeado, el mensaje enviado, luego la fecha actual otra vez, el nombre del chatbot y su mensaje
+     * @param message mensaje enviado por el usuario
+     * @param chatbot chatbot vinculado
+     * @param flow flow vinculado
+     * @return String formateado del mensaje enviado por el usuario y del chatbot
+     */
     @Override
     public String registerAppendString(String message,
                                        Chatbot_21498571_PaulRamirez chatbot,
@@ -133,6 +202,11 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
                 flow.flowGetOptionsMsg(flow.getOption()));
     }
 
+    /**
+     * Metodo para hablar con los chatbot, revisa si hay usuario logeado, y luego actualiza el historial del usuario y el actual dependiendo si es el primer mensaje enviado o no
+     * @param message mensaje enviado por el usuario
+     * @return String formateado del mensaje enviado por el usuario y del chatbot
+     */
     public String talk(String message){
         if(this.getLoggedUser().isEmpty()){
             return "";
@@ -167,6 +241,11 @@ public class System_21498571_PaulRamirez implements ISystem_21498571_PaulRamirez
         return registerAppend;
     }
 
+    /**
+     * Metodo que busca el historial de un usuario en los usuarios registrados
+     * @param nickname username del usuario
+     * @return historial del usuario cuyo username corresponde al parametro de entrada
+     */
     public String synthesis(String nickname){
         return this.searchUser(nickname).getChatHistory();
     }
