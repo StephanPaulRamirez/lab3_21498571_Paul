@@ -52,14 +52,6 @@ public class Chatbot_21498571_PaulRamirez implements IChatbot_21498571_PaulRamir
         return name;
     }
 
-    /**
-     * Selector del mensaje de bienvenida del chatbot
-     * @return mensaje de bienvenida del chatbot
-     */
-    @Override
-    public String getMsg() {
-        return welcomeMessage;
-    }
 
     /**
      * Selector del id del flow inicial del chatbot

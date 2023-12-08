@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu_21498571_PaulRamirez {
+    /**
+     * Menu principal del sistema, espera el enter del comando del usuario para inicializar el mismo, se puede iniciar sesion, registrar usuarios y finalizar el programa
+     */
     public static void start() {
         Scanner input = new Scanner(System.in);
         final int MENU_EXIT_OPTION = 3;
@@ -82,31 +85,50 @@ public class Menu_21498571_PaulRamirez {
         } while (choice1 != MENU_EXIT_OPTION);
     }
 
-    private static void printMenuInicio() {
+    /**
+     * Metodo para mostrar por pantalla las opciones del menu del inicio
+     */
+    public static void printMenuInicio() {
         System.out.println("### Sistema de Chatbots - Inicio ###");
         System.out.println("1. Login de Usuario ");
         System.out.println("2. Registro de Usuario ");
         System.out.println("3. Finalizar Programa ");
         System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
-    private static void printMenuLogin() {
+
+    /**
+     * Metodo para mostrar por pantalla las indicaciones para introducir el nombre de usuario para iniciar sesion
+     */
+    public static void printMenuLogin() {
         System.out.println("### Sistema de Chatbots - Login ###");
         System.out.println("INTRODUZCA NOMBRE DE USUARIO: ");
     }
-    private static void printMenuRegistro() {
+
+    /**
+     * Metodo para mostrar por pantalla las opciones de registro
+     */
+    public static void printMenuRegistro() {
         System.out.println("### Sistema de Chatbots - Registro ###");
         System.out.println("1. Registrar usuario normal ");
         System.out.println("2. Registrar usuario administrador ");
         System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
-    private static void printMenuNormal() {
+
+    /**
+     * Metodo para mostrar por pantalla las opciones del usuario normal al iniciar sesion
+     */
+    public static void printMenuNormal() {
         System.out.println("### Sistema de Chatbots - Usuario Normal ###");
         System.out.println("1. Hablar ");
         System.out.println("2. Mostrar Sintesis ");
         System.out.println("3. Salir ");
         System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
-    private static void printMenuChatbots() {
+
+    /**
+     * Metodo para mostrar por pantalla las opciones del usuario administrador al iniciar sesion
+     */
+    public static void printMenuChatbots() {
         System.out.println("### Sistema de Chatbots - Usuario Administrador ###");
         System.out.println("1. Crear un Chatbot ");
         System.out.println("2. Modificar un Chatbot ");
@@ -116,28 +138,43 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("6. Salir ");
         System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
-    private static void printMenuFlows() {
+
+    /**
+     * Metodo para mostrar por pantalla las opciones al crear flows
+     */
+    public static void printMenuFlows() {
         System.out.println("### Sistema de Chatbots - Crear Flows ###");
         System.out.println("1. Crear un Flow ");
         System.out.println("2. Visualizar los Flows con sus opciones creadas ");
         System.out.println("3. Salir ");
         System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
-    private static void printMenuOptions() {
+
+    /**
+     * Metodo para mostrar por pantalla las opciones al crear options
+     */
+    public static void printMenuOptions() {
         System.out.println("### Sistema de Chatbots - Crear Options ###");
         System.out.println("1. Crear un Option ");
         System.out.println("2. Visualizar todos los Options con sus keywords ");
         System.out.println("3. Salir ");
         System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
-    private static void printMenuKeywords() {
+
+    /**
+     * Metodo para mostrar por pantalla las opciones al ingresar las keyword de un option
+     */
+    public static void printMenuKeywords() {
         System.out.println("### Sistema de Chatbots - Crear Keywords ###");
         System.out.println("1. Agregar una Keyword ");
         System.out.println("2. Salir ");
         System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
 
-    private static void printMenuModChatbots() {
+    /**
+     * Metodo para mostrar por pantalla las opciones al modificar chatbots, es decir, agregar un flow o modificar un flow
+     */
+    public static void printMenuModChatbots() {
         System.out.println("### Sistema de Chatbots - Modificar Chatbots ###");
         System.out.println("1. Agregar un Flow ");
         System.out.println("2. Modificar un Flow ");
@@ -146,7 +183,12 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("INTRODUZCA SU OPCIÓN: ");
     }
 
-    private static void menuModify(Scanner input, Chatbot_21498571_PaulRamirez chatbot){
+    /**
+     * Menu para modificar un chatbot, se ingresan por consola los datos del flow/option que se desea agregar
+     * @param input escaner del menu, para recibir los datos que desea ingresar el admin
+     * @param chatbot chatbot al cual se le desea agregar un flow/option
+     */
+    public static void menuModify(Scanner input, Chatbot_21498571_PaulRamirez chatbot){
         int MENU_EXIT_OPTION_MOD = 4;
         int choicemod;
         int idflow;
@@ -214,7 +256,13 @@ public class Menu_21498571_PaulRamirez {
             }
         }while (choicemod != MENU_EXIT_OPTION_MOD);
     }
-    private static List<Flow_21498571_PaulRamirez> getUserFlows(Scanner input){
+
+    /**
+     * Menu para crear una serie de flows, que luego se agregan en el constructor de un chatbot
+     * @param input escaner del menu, para recibir los datos que desea ingresar el admin
+     * @return Flows creados por el administrador
+     */
+    public static List<Flow_21498571_PaulRamirez> getUserFlows(Scanner input){
         List<Flow_21498571_PaulRamirez> F = new ArrayList<>();
         int MENU_EXIT_OPTION_CHATBOT = 3;
         int choiceChatbot;
@@ -246,7 +294,13 @@ public class Menu_21498571_PaulRamirez {
         }while(choiceChatbot != MENU_EXIT_OPTION_CHATBOT);
         return F;
     }
-    private static List<Option_21498571_PaulRamirez> getUserOptions(Scanner input){
+
+    /**
+     * Menu para crear una serie de options, que luego se agregan en el constructor de un flow
+     * @param input escaner del menu, para recibir los datos que desea ingresar el admin
+     * @return options creador por el administrador
+     */
+    public static List<Option_21498571_PaulRamirez> getUserOptions(Scanner input){
         int choiceFlow;
         int MENU_EXIT_OPTION_FLOW = 3;
         List<Option_21498571_PaulRamirez> O = new ArrayList<>();
@@ -284,7 +338,13 @@ public class Menu_21498571_PaulRamirez {
         }while(choiceFlow != MENU_EXIT_OPTION_FLOW);
         return O;
     }
-    private static List<String> getUserKeywords(Scanner input){
+
+    /**
+     * Menu para recibir las keywords que desea incluir el administrador a la creacion de un option
+     * @param input escaner del menu, para recibir los datos que desea ingresar el admin
+     * @return lista de keywords ingresadas por el admin
+     */
+    public static List<String> getUserKeywords(Scanner input){
         List<String> K = new ArrayList<>();
         int choicekeyword;
         do{
@@ -305,7 +365,12 @@ public class Menu_21498571_PaulRamirez {
         return K;
     }
 
-    private static void adminMenu(Scanner input, System_21498571_PaulRamirez system){
+    /**
+     * usuario comun para iniciar un talk, crear o modificar chatbots, mostrar los chatbots creados o mostrar el historial del admin
+     * @param input escaner del menu, para recibir los datos que desea ingresar el admin
+     * @param system
+     */
+    public static void adminMenu(Scanner input, System_21498571_PaulRamirez system){
         int choice2;
         int MENU_EXIT_OPTION2 = 6;
         do {
@@ -368,7 +433,12 @@ public class Menu_21498571_PaulRamirez {
         } while (choice2 != MENU_EXIT_OPTION2);
     }
 
-    private static void normalMenu(Scanner input, System_21498571_PaulRamirez system){
+    /**
+     * Menu de usuario comun para iniciar un talk o mostrar el historial del usuario por pantalla
+     * @param input escaner del menu, para recibir los datos que desea ingresar el usuario comun
+     * @param system sistema en donde se establecen las conversaciones y que contiene los chatbots e historial de los usuarios
+     */
+    public static void normalMenu(Scanner input, System_21498571_PaulRamirez system){
         int choice3;
         int MENU_EXIT_OPTION2 = 3;
         do {
@@ -395,7 +465,12 @@ public class Menu_21498571_PaulRamirez {
         } while (choice3 != MENU_EXIT_OPTION2);
     }
 
-    private static void menuTalk(Scanner input, System_21498571_PaulRamirez system){
+    /**
+     * Menu usado iniciar un talk con un usuario, primera imprime por consola las indicaciones y luego comienza el chat
+     * @param input escaner del menu, para recibir el mensaje que del usuario
+     * @param system el sistema en donde se establece la conversacion
+     */
+    public static void menuTalk(Scanner input, System_21498571_PaulRamirez system){
         System.out.println("### Sistema de Chatbots - Ejecucion del sistema de chatbots ### \n" +
                 "Ingrese como opcion SALIR, para salir de la conversacion\n"+
                 "porfavor comience la conversacion enviando el primer mensaje: ");
@@ -428,7 +503,11 @@ public class Menu_21498571_PaulRamirez {
         system.systemLogin(username);
     }
 
-    private static System_21498571_PaulRamirez initialSystem(){
+    /**
+     * Metodo que inicializa el sistema, crea usuarios, options, flows y chatbots para luego añadirlos a un sistema
+     * @return sistema con chatbots creados y usuarios registrados
+     */
+    public static System_21498571_PaulRamirez initialSystem(){
         Option_21498571_PaulRamirez OP1 = new Option_21498571_PaulRamirez(1, "1) Viajar",
                 1, 1, List.of("viajar", "turistear", "conocer"));
         Option_21498571_PaulRamirez OP2 = new Option_21498571_PaulRamirez(2, "2) Estudiar",

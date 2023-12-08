@@ -7,7 +7,6 @@ import java.util.List;
 public interface IChatbot_21498571_PaulRamirez {
     int getId();
     String getName();
-    String getMsg();
     int getStartFlowId();
     List<Flow_21498571_PaulRamirez> getFlows();
     boolean chatbotAddFlow(Flow_21498571_PaulRamirez flow);
