@@ -1,17 +1,17 @@
 ################################################
 Direccion de codigo fuente y main:
-El directorio de codigoFuente_21498571_PaulRamirez se encuentra en src\main\java\codigoFuente_21498571_PaulRamirez En este directorio se puede encontrar los packetes Interfaces, TDAs y además el archivo Main.java
+- El directorio de codigoFuente_21498571_PaulRamirez se encuentra en src\main\java\codigoFuente_21498571_PaulRamirez En este directorio se puede encontrar los packetes Interfaces, TDAs y además el archivo Main.java
 ################################################
 Instrucciones:
--Al inicio saldra una indicacion de que para crear el sistema o inicializarlo hay que presionar enter.
--Luego saldra la pantalla de inicio que contiene las opciones; login, registro y finalizar programa.
+- Al inicio saldra una indicacion de que para crear el sistema o inicializarlo hay que presionar enter.
+- Luego saldra la pantalla de inicio que contiene las opciones; login, registro y finalizar programa.
  Dentro de los usuarios registrados en el sistema inicial, viene uno de tipo admin con el username "admin" y otro comun llamado "normal".
 - Si se desa registrar un usuario, hay que decidir si sera admin o comun, y luego solo hay que ingresar el nombre de usurario.
 - Si se desea iniciar sesion, solo hay que ingresar un username de un usuario registrado, para que luego se despliegue el menu asociado al tipo de usuario que inicio    sesion.
-1.- En el menu de admin, se pueden crear chatbots y añadirlos al sistema, en donde se pediran por consola periodicamente los datos necesarios para crear
+1. - En el menu de admin, se pueden crear chatbots y añadirlos al sistema, en donde se pediran por consola periodicamente los datos necesarios para crear
 un chatbot, empezando por atributos de este, luego al llegar a los flows que se desean ingresar en el chatbot, se abre otro menu que contiene opciones para;
 crear un flow, visualizar los flows creados y salir del menu de flows, donde al elegir esta ultima se procesaran la lista de flows creados, por otro lado, si se desea
 crear flows, se pediran los datos de este y para el momento de elegir los option y tambien se despliega otro menu para crear options de manera similar a los flows, 
 en donde crear los option pedira los datos de este y luego una serie de keywords hasta que no se deseen agregar mas y luego se procesan al crear el flow, finalmente cuando no se desea crear mas flows, se crea el chatbot y si su id no se encuentra en el sistema se agrega a este. Por otro lado, si se desea modificar un chatbot, se 
 preguntara si se desea agregar un flow o modificar un flow para agregar un option, para cualquiera de los casos se pedir el id del chatbot/id, y luego se pediran los datos del flow/option que se desea agregar, y si su id no esta repetido se agrega. Luego hay otra opcion exclusiva de admin que consiste en ver todos los chatbots creados con sus flujos y option asociados.
-2.- Para el menu de usuario comun, se tiene la posibilidad de hablar, en donde se despliegan instrucciones para hablar, que indican que para dejar de hablar con este y volver al menu de usuario, se debe ingresar la keyword "SALIR", luego se debe enviar el primer mensaje en el caso contrario y asi empezar a ingresar las keywords/numero de opcion que muestre el flujo del chatbot actual para seguir la conversacion y posteriormente se guarda el historial. En caso de que se desee visualizar el historial, simplemente se debe elegir la opcion "sintesis" en el menu, donde se mostrara por consola el historial completo del usuario. Luego si se desea cerrar sesion, solo hay que elegir la opcion "Salir" en el menu Estas opciones mencionadas tambien estan disponibles en el menu de admin.
+2. - Para el menu de usuario comun, se tiene la posibilidad de hablar, en donde se despliegan instrucciones para hablar, que indican que para dejar de hablar con este y volver al menu de usuario, se debe ingresar la keyword "SALIR", luego se debe enviar el primer mensaje en el caso contrario y asi empezar a ingresar las keywords/numero de opcion que muestre el flujo del chatbot actual para seguir la conversacion y posteriormente se guarda el historial. En caso de que se desee visualizar el historial, simplemente se debe elegir la opcion "sintesis" en el menu, donde se mostrara por consola el historial completo del usuario. Luego si se desea cerrar sesion, solo hay que elegir la opcion "Salir" en el menu Estas opciones mencionadas tambien estan disponibles en el menu de admin.
