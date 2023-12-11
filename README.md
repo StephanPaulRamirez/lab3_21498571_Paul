@@ -1,9 +1,12 @@
 # lab3_21498571_Paul
 
 ################################################
+- 
 Direccion de codigo fuente y main:
 - El directorio de codigoFuente_21498571_PaulRamirez se encuentra en src\main\java\codigoFuente_21498571_PaulRamirez En este directorio se puede encontrar los packetes Interfaces, TDAs y además el archivo Main.java
+- 
 ################################################
+- 
 Instrucciones de uso:
 - Al inicio saldra una indicacion de que para crear el sistema o inicializarlo hay que presionar enter.
 - Luego saldra la pantalla de inicio que contiene las opciones; login, registro y finalizar programa.
