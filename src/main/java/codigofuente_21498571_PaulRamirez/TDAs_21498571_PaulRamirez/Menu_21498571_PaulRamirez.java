@@ -93,7 +93,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("1. Login de Usuario ");
         System.out.println("2. Registro de Usuario ");
         System.out.println("3. Finalizar Programa ");
-        System.out.println("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCION: ");
     }
 
     /**
@@ -111,7 +111,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("### Sistema de Chatbots - Registro ###");
         System.out.println("1. Registrar usuario normal ");
         System.out.println("2. Registrar usuario administrador ");
-        System.out.println("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCION: ");
     }
 
     /**
@@ -122,7 +122,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("1. Hablar ");
         System.out.println("2. Mostrar Sintesis ");
         System.out.println("3. Salir ");
-        System.out.println("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCION: ");
     }
 
     /**
@@ -136,7 +136,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("4. Mostrar Sintesis ");
         System.out.println("5. Visualizar todos los Chatbot con sus flujos y opciones creadas ");
         System.out.println("6. Salir ");
-        System.out.println("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCION: ");
     }
 
     /**
@@ -147,7 +147,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("1. Crear un Flow ");
         System.out.println("2. Visualizar los Flows con sus opciones creadas ");
         System.out.println("3. Salir ");
-        System.out.println("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCION: ");
     }
 
     /**
@@ -158,7 +158,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("1. Crear un Option ");
         System.out.println("2. Visualizar todos los Options con sus keywords ");
         System.out.println("3. Salir ");
-        System.out.println("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCION: ");
     }
 
     /**
@@ -168,7 +168,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("### Sistema de Chatbots - Crear Keywords ###");
         System.out.println("1. Agregar una Keyword ");
         System.out.println("2. Salir ");
-        System.out.println("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCION: ");
     }
 
     /**
@@ -180,7 +180,7 @@ public class Menu_21498571_PaulRamirez {
         System.out.println("2. Modificar un Flow ");
         System.out.println("3. Visualizar los Flows del chatbot con sus opciones creadas ");
         System.out.println("4. Salir ");
-        System.out.println("INTRODUZCA SU OPCIÓN: ");
+        System.out.println("INTRODUZCA SU OPCION: ");
     }
 
     /**
@@ -393,7 +393,7 @@ public class Menu_21498571_PaulRamirez {
                             message, initialFlowId, F1);
                     boolean boolchatbot = system.systemAddChatbot(c);
                     if (boolchatbot){
-                        System.out.println("Y se ha añadido exitosamente al sistema!");
+                        System.out.println("Y se ha agregado exitosamente al sistema!");
                     }
                     else {
                         System.out.println("pero no se agrego, debido a que ya existia uno con el mismo id en el sistema, porfavor cree otro con distinto id");
@@ -504,7 +504,7 @@ public class Menu_21498571_PaulRamirez {
     }
 
     /**
-     * Metodo que inicializa el sistema, crea usuarios, options, flows y chatbots para luego añadirlos a un sistema
+     * Metodo que inicializa el sistema, crea usuarios, options, flows y chatbots para luego agregarlos a un sistema
      * @return sistema con chatbots creados y usuarios registrados
      */
     public static System_21498571_PaulRamirez initialSystem(){
@@ -512,30 +512,30 @@ public class Menu_21498571_PaulRamirez {
                 1, 1, List.of("viajar", "turistear", "conocer"));
         Option_21498571_PaulRamirez OP2 = new Option_21498571_PaulRamirez(2, "2) Estudiar",
                 2, 1, List.of("estudiar", "aprender", "perfeccionarme"));
-        Flow_21498571_PaulRamirez F1 = new Flow_21498571_PaulRamirez(1, "Flujo Principal Chatbot0\nBienvenido\n¿Qué te gustaría hacer?",
+        Flow_21498571_PaulRamirez F1 = new Flow_21498571_PaulRamirez(1, "Flujo Principal Chatbot0\nBienvenido\n¿Que te gustaria hacer?",
                 List.of(OP1,OP2));
         Chatbot_21498571_PaulRamirez C0 = new Chatbot_21498571_PaulRamirez(0, "Inicial",
-                "Bienvenido\n¿Qué te gustaría hacer?", 1, List.of(F1));
+                "Bienvenido\n¿Que te gustaria hacer?", 1, List.of(F1));
 
         Option_21498571_PaulRamirez OP3 = new Option_21498571_PaulRamirez(1, "1) New York, USA",
                 1, 2, List.of("USA", "Estados Unidos", "New York"));
-        Option_21498571_PaulRamirez OP4 = new Option_21498571_PaulRamirez(2, "2) París, Francia",
+        Option_21498571_PaulRamirez OP4 = new Option_21498571_PaulRamirez(2, "2) Paris, Francia",
                 1, 1, List.of("Paris", "Eiffel"));
         Option_21498571_PaulRamirez OP5 = new Option_21498571_PaulRamirez(3, "3) Torres del Paine, Chile",
                 1, 1, List.of("Chile", "Torres", "Paine", "Torres Paine", "Torres del Paine"));
         Option_21498571_PaulRamirez OP6 = new Option_21498571_PaulRamirez(4, "4) Volver",
                 0, 1, List.of("Regresar", "Salir", "Volver"));
-        Flow_21498571_PaulRamirez F2 = new Flow_21498571_PaulRamirez(1, "Flujo 1 Chatbot1\n¿Dónde te Gustaría ir?",
+        Flow_21498571_PaulRamirez F2 = new Flow_21498571_PaulRamirez(1, "Flujo 1 Chatbot1\n¿Donde te Gustaria ir?",
                 List.of(OP3, OP4, OP5, OP6));
         Option_21498571_PaulRamirez OP7 = new Option_21498571_PaulRamirez(1, "1) Central Park",
                 1, 2, List.of("Central", "Park", "Central Park"));
         Option_21498571_PaulRamirez OP8 = new Option_21498571_PaulRamirez(2, "2) Museos",
                 1, 2, List.of("Museo"));
-        Option_21498571_PaulRamirez OP9 = new Option_21498571_PaulRamirez(3, "3) Ningún otro atractivo",
+        Option_21498571_PaulRamirez OP9 = new Option_21498571_PaulRamirez(3, "3) Ningun otro atractivo",
                 1, 3, List.of("Ninguno", "Ningun otro", "Ningun otro atractivo"));
         Option_21498571_PaulRamirez OP10 = new Option_21498571_PaulRamirez(4, "4) Cambiar destino",
                 1, 1, List.of("Cambiar", "Volver", "Salir"));
-        Flow_21498571_PaulRamirez F3 = new Flow_21498571_PaulRamirez(2, "Flujo 2 Chatbot1\n¿Qué atractivos te gustaría visitar?",
+        Flow_21498571_PaulRamirez F3 = new Flow_21498571_PaulRamirez(2, "Flujo 2 Chatbot1\n¿Que atractivos te gustaria visitar?",
                 List.of(OP7, OP8, OP9, OP10));
         Option_21498571_PaulRamirez OP11 = new Option_21498571_PaulRamirez(1, "1) Solo",
                 1, 3, List.of("Solo"));
@@ -543,25 +543,25 @@ public class Menu_21498571_PaulRamirez {
                 1, 3, List.of("Pareja"));
         Option_21498571_PaulRamirez OP13 = new Option_21498571_PaulRamirez(3, "3) En familia",
                 1, 3, List.of("Familia"));
-        Option_21498571_PaulRamirez OP14 = new Option_21498571_PaulRamirez(4, "4) Agregar más atractivos",
+        Option_21498571_PaulRamirez OP14 = new Option_21498571_PaulRamirez(4, "4) Agregar mas atractivos",
                 1, 2, List.of("Volver", "Atractivos"));
         Option_21498571_PaulRamirez OP15 = new Option_21498571_PaulRamirez(5, "5) En realidad quiero otro destino",
                 1, 1, List.of("Cambiar destino"));
-        Flow_21498571_PaulRamirez F4 = new Flow_21498571_PaulRamirez(3, "Flujo 3 Chatbot1\n¿Vas solo o acompañado?",
+        Flow_21498571_PaulRamirez F4 = new Flow_21498571_PaulRamirez(3, "Flujo 3 Chatbot1\n¿Vas solo o acompanado?",
                 List.of(OP11, OP12, OP13, OP14, OP15));
         Chatbot_21498571_PaulRamirez C1 = new Chatbot_21498571_PaulRamirez(1, "Agencia Viajes",
-                "Bienvenido\n¿Dónde quieres viajar?", 1, List.of(F2,F3,F4));
+                "Bienvenido\n¿Donde quieres viajar?", 1, List.of(F2,F3,F4));
 
-        Option_21498571_PaulRamirez OP16 = new Option_21498571_PaulRamirez(1, "1) Carrera Técnica",
-                2, 1, List.of("Técnica"));
+        Option_21498571_PaulRamirez OP16 = new Option_21498571_PaulRamirez(1, "1) Carrera Tecnica",
+                2, 1, List.of("Tecnica"));
         Option_21498571_PaulRamirez OP17 = new Option_21498571_PaulRamirez(2, "2) Postgrado",
                 2, 1, List.of("Doctorado", "Magister", "Postgrado"));
         Option_21498571_PaulRamirez OP18 = new Option_21498571_PaulRamirez(3, "3) Volver",
                 0, 1, List.of("Volver", "Salir", "Regresar"));
-        Flow_21498571_PaulRamirez F5 = new Flow_21498571_PaulRamirez(1, "Flujo 1 Chatbot2\n¿Qué te gustaría estudiar?",
+        Flow_21498571_PaulRamirez F5 = new Flow_21498571_PaulRamirez(1, "Flujo 1 Chatbot2\n¿Que te gustaria estudiar?",
                 List.of(OP16, OP17, OP18));
-        Chatbot_21498571_PaulRamirez C2 = new Chatbot_21498571_PaulRamirez(2, "Orientador Académico",
-                "Bienvenido\n¿Qué te gustaría estudiar?", 1, List.of(F5));
+        Chatbot_21498571_PaulRamirez C2 = new Chatbot_21498571_PaulRamirez(2, "Orientador Academico",
+                "Bienvenido\n¿Que te gustaria estudiar?", 1, List.of(F5));
 
         System_21498571_PaulRamirez S0 = new System_21498571_PaulRamirez("Chatbots Paradigmas",
                 0, List.of(C0, C1, C2));
